@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Main gradient -->
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Inner glow -->
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1f3a"/>
+      <stop offset="100%" stop-color="#0a0e1a"/>
+    </radialGradient>
+
+    <!-- Shine gradient -->
+    <linearGradient id="shineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="96" fill="url(#bgGrad)" stroke="rgba(99,102,241,0.4)" stroke-width="1.5"/>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(99,102,241,0.15)" stroke-width="1"/>
+
+  <!-- Shield shape -->
+  <path
+    d="M100 28 L148 50 L148 95 C148 125 126 148 100 158 C74 148 52 125 52 95 L52 50 Z"
+    fill="url(#shieldGrad)"
+    filter="url(#glow)"
+    opacity="0.95"
+  />
+
+  <!-- Shield inner darker layer -->
+  <path
+    d="M100 36 L142 55 L142 95 C142 121 122 142 100 151 C78 142 58 121 58 95 L58 55 Z"
+    fill="rgba(0,0,0,0.2)"
+  />
+
+  <!-- Shield shine -->
+  <path
+    d="M100 36 L142 55 L142 75 C130 68 115 63 100 63 C85 63 70 68 58 75 L58 55 Z"
+    fill="url(#shineGrad)"
+    opacity="0.6"
+  />
+
+  <!-- Checkmark / tick icon inside shield -->
+  <polyline
+    points="76,95 92,112 126,78"
+    fill="none"
+    stroke="white"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#innerGlow)"
+  />
+
+  <!-- SCMS text -->
+  <text
+    x="100"
+    y="182"
+    text-anchor="middle"
+    font-family="'Segoe UI', 'Inter', Arial, sans-serif"
+    font-weight="800"
+    font-size="18"
+    letter-spacing="4"
+    fill="url(#shieldGrad)"
+    filter="url(#innerGlow)"
+  >SCMS</text>
+
+  <!-- Decorative dots -->
+  <circle cx="62" cy="170" r="2.5" fill="#6366f1" opacity="0.6"/>
+  <circle cx="138" cy="170" r="2.5" fill="#a855f7" opacity="0.6"/>
+  <circle cx="100" cy="175" r="1.5" fill="#8b5cf6" opacity="0.4"/>
+</svg>

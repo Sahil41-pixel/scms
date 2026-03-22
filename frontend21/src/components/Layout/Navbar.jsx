@@ -8,9 +8,11 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const stored = localStorage.getItem("scms");
-  const user   = stored ? JSON.parse(stored).user : null;
+  const user = stored ? JSON.parse(stored).user : null;
 
-  useEffect(() => { setMobileOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   const handleLogout = () => {
     localStorage.removeItem("scms");
@@ -19,47 +21,56 @@ const Navbar = () => {
 
   const navLinks = {
     user: [
-      { path: "/home",          label: "Dashboard",     icon: "fa-house" },
+      { path: "/home", label: "Dashboard", icon: "fa-house" },
       { path: "/my-complaints", label: "My Complaints", icon: "fa-list" },
     ],
     admin: [
-      { path: "/admin",            label: "Dashboard",      icon: "fa-chart-pie" },
+      { path: "/admin", label: "Dashboard", icon: "fa-chart-pie" },
       { path: "/admin/complaints", label: "All Complaints", icon: "fa-inbox" },
-      { path: "/admin/users",      label: "Manage Users",   icon: "fa-users" },
+      { path: "/admin/users", label: "Manage Users", icon: "fa-users" },
     ],
     employee: [
-      { path: "/employee",          label: "Dashboard", icon: "fa-chart-bar" },
-      { path: "/employee/resolved", label: "Resolved",  icon: "fa-circle-check" },
+      { path: "/employee", label: "Dashboard", icon: "fa-chart-bar" },
+      {
+        path: "/employee/resolved",
+        label: "Resolved",
+        icon: "fa-circle-check",
+      },
     ],
   };
 
-  const links = user ? (navLinks[user.role] || []) : [];
+  const links = user ? navLinks[user.role] || [] : [];
 
   const roleGrad = {
-    admin:    "linear-gradient(135deg,#ef4444,#dc2626)",
+    admin: "linear-gradient(135deg,#ef4444,#dc2626)",
     employee: "linear-gradient(135deg,#10b981,#059669)",
-    user:     "linear-gradient(135deg,#6366f1,#8b5cf6)",
+    user: "linear-gradient(135deg,#6366f1,#8b5cf6)",
   };
   const roleColor = {
-    admin: "#ef4444", employee: "#10b981", user: "#818cf8",
+    admin: "#ef4444",
+    employee: "#10b981",
+    user: "#818cf8",
   };
 
   return (
     <>
       <nav className="scms-nav">
         <div className="scms-nav__wrap">
-
           {/* Brand */}
           <Link to="/" className="scms-nav__brand">
-            <div className="scms-nav__brand-icon">
-              <i className="fa-solid fa-shield-halved"></i>
-            </div>
+            <img
+              src="/logo.svg"
+              width="36"
+              height="36"
+              alt="SCMS Logo"
+              style={{ borderRadius: "9px" }}
+            />
             <span className="scms-nav__brand-name">SCMS</span>
           </Link>
 
           {/* Desktop links */}
           <div className="scms-nav__links">
-            {links.map(l => (
+            {links.map((l) => (
               <Link
                 key={l.path}
                 to={l.path}
@@ -76,12 +87,18 @@ const Navbar = () => {
             {user ? (
               <>
                 <div className="scms-nav__user">
-                  <div className="scms-nav__avatar" style={{ background: roleGrad[user.role] }}>
+                  <div
+                    className="scms-nav__avatar"
+                    style={{ background: roleGrad[user.role] }}
+                  >
                     {user.username[0].toUpperCase()}
                   </div>
                   <div className="scms-nav__user-text">
                     <span className="scms-nav__username">{user.username}</span>
-                    <span className="scms-nav__role" style={{ color: roleColor[user.role] }}>
+                    <span
+                      className="scms-nav__role"
+                      style={{ color: roleColor[user.role] }}
+                    >
                       {user.role}
                     </span>
                   </div>
@@ -93,17 +110,23 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Link to="/login"    className="scms-nav__ghost">Login</Link>
-                <Link to="/register" className="scms-nav__primary">Get Started</Link>
+                <Link to="/login" className="scms-nav__ghost">
+                  Login
+                </Link>
+                <Link to="/register" className="scms-nav__primary">
+                  Get Started
+                </Link>
               </>
             )}
 
             <button
               className="scms-nav__burger"
-              onClick={() => setMobileOpen(v => !v)}
+              onClick={() => setMobileOpen((v) => !v)}
               aria-label="Menu"
             >
-              <i className={`fa-solid ${mobileOpen ? "fa-xmark" : "fa-bars"}`}></i>
+              <i
+                className={`fa-solid ${mobileOpen ? "fa-xmark" : "fa-bars"}`}
+              ></i>
             </button>
           </div>
         </div>
@@ -113,7 +136,7 @@ const Navbar = () => {
       {mobileOpen && (
         <>
           <div className="scms-nav__mobile-drawer">
-            {links.map(l => (
+            {links.map((l) => (
               <Link
                 key={l.path}
                 to={l.path}
@@ -124,13 +147,19 @@ const Navbar = () => {
               </Link>
             ))}
             {user && (
-              <button className="scms-nav__mobile-logout" onClick={handleLogout}>
+              <button
+                className="scms-nav__mobile-logout"
+                onClick={handleLogout}
+              >
                 <i className="fa-solid fa-right-from-bracket"></i>
                 Logout
               </button>
             )}
           </div>
-          <div className="scms-nav__mobile-overlay" onClick={() => setMobileOpen(false)} />
+          <div
+            className="scms-nav__mobile-overlay"
+            onClick={() => setMobileOpen(false)}
+          />
         </>
       )}
     </>
