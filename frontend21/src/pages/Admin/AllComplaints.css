@@ -1,0 +1,4 @@
+.all-cp-page { min-height:100vh;background:var(--bg-primary);padding-top:var(--navbar-height); }
+.filter-row { display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;align-items:center; }
+.filter-select-prem { background:rgba(255,255,255,0.05)!important;border:1px solid var(--border)!important;color:var(--text-primary)!important;border-radius:var(--radius-full)!important;padding:0.4rem 0.9rem!important;font-size:0.83rem!important;cursor:pointer;min-width:140px; }
+.filter-select-prem option { background:#1e293b; }

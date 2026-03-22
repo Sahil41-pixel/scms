@@ -1,0 +1,7 @@
+.my-cp-page { min-height:100vh;background:var(--bg-primary);padding-top:var(--navbar-height); }
+.filter-strip { display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem; }
+.filter-chip { display:flex;align-items:center;gap:5px;padding:0.35rem 0.9rem;border:1px solid var(--border);border-radius:var(--radius-full);background:rgba(255,255,255,0.04);font-size:0.8rem;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all 0.2s; }
+.filter-chip:hover { background:rgba(99,102,241,0.08);border-color:rgba(99,102,241,0.3);color:#818cf8; }
+.filter-chip.active { background:var(--grad-primary);color:#fff;border-color:transparent;font-weight:700; }
+.filter-count { background:rgba(255,255,255,0.2);border-radius:99px;font-size:0.7rem;padding:1px 6px;font-weight:700; }
+.empty-prem { text-align:center;padding:5rem 1rem;color:var(--text-muted); }

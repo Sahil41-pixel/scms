@@ -1,0 +1,8 @@
+.manage-page { min-height:100vh;background:var(--bg-primary);padding-top:var(--navbar-height); }
+.prem-table { width:100%;border-collapse:separate;border-spacing:0;font-size:0.87rem; }
+.prem-table thead th { padding:0.75rem 1rem;text-align:left;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02); }
+.prem-table tbody td { padding:0.85rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:middle; }
+.prem-table tbody tr { transition:background 0.2s; }
+.prem-table tbody tr:hover { background:rgba(255,255,255,0.02); }
+.av-cell { display:flex;align-items:center;gap:0.75rem; }
+.av-circle { width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.82rem;flex-shrink:0; }
