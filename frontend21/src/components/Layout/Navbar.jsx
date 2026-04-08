@@ -10,6 +10,12 @@ const Navbar = () => {
   const stored = localStorage.getItem("scms");
   const user = stored ? JSON.parse(stored).user : null;
 
+  const dashboardPath = {
+    user: "/home",
+    admin: "/admin",
+    employee: "/employee",
+  };
+
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname]);
@@ -57,7 +63,10 @@ const Navbar = () => {
       <nav className="scms-nav">
         <div className="scms-nav__wrap">
           {/* Brand */}
-          <Link to="/" className="scms-nav__brand">
+          <Link
+            to={user ? dashboardPath[user.role] : "/"}
+            className="scms-nav__brand"
+          >
             <img
               src="/logo.svg"
               width="36"
