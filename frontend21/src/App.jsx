@@ -40,7 +40,25 @@ function App() {
       />
       <Navbar />
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route
+  path="/"
+  element={
+    (() => {
+      const stored = localStorage.getItem("scms");
+      const user = stored ? JSON.parse(stored).user : null;
+
+      if (!user) return <Landing />;
+
+      const role = user.role?.toLowerCase();
+
+      if (role === "user") return <Navigate to="/home" replace />;
+      if (role === "admin") return <Navigate to="/admin" replace />;
+      if (role === "employee") return <Navigate to="/employee" replace />;
+
+      return <Landing />;
+    })()
+  }
+/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
