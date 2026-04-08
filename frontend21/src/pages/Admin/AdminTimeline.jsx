@@ -47,7 +47,6 @@ const AdminTimeline = () => {
           </div>
           <p style={{ color:"var(--text-secondary)", fontSize:"0.88rem", marginBottom:"0.75rem" }}>{complaint.description}</p>
           <div style={{ display:"flex", flexWrap:"wrap", gap:"0.75rem", fontSize:"0.8rem", color:"var(--text-muted)" }}>
-            <span><i className="fa-solid fa-user me-1"></i>{complaint.submittedBy?.username}</span>
             <span><i className="fa-solid fa-tag me-1" style={{color:"#818cf8"}}></i>{complaint.category}</span>
             <span><i className="fa-solid fa-flag me-1" style={{color:"#f59e0b"}}></i>{complaint.priority}</span>
             {complaint.assignedTo && <span><i className="fa-solid fa-user-tie me-1" style={{color:"#10b981"}}></i>{complaint.assignedTo.username}</span>}

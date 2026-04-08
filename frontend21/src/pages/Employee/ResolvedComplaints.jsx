@@ -45,7 +45,7 @@ const ResolvedComplaints = () => {
                 </p>
                 <div style={{ display:"flex", flexWrap:"wrap", gap:"0.5rem", fontSize:"0.75rem", color:"var(--text-muted)", marginBottom:"0.85rem" }}>
                   <span><i className="fa-solid fa-tag me-1" style={{color:"#818cf8"}}></i>{c.category}</span>
-                  <span><i className="fa-solid fa-user me-1"></i>{c.submittedBy?.username}</span>
+                  
                   <span><i className="fa-solid fa-calendar me-1"></i>{new Date(c.updatedAt).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}</span>
                 </div>
                 {/* Both images */}

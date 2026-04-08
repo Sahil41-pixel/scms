@@ -63,7 +63,6 @@ const ManageUsers = () => {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
                   <th>Email</th>
                   <th>Joined</th>
                   <th>Action</th>
@@ -73,14 +72,6 @@ const ManageUsers = () => {
                 {tableData.map((u,i) => (
                   <tr key={u._id}>
                     <td style={{ color:"var(--text-muted)", width:40 }}>{i+1}</td>
-                    <td>
-                      <div className="av-cell">
-                        <div className="av-circle" style={{ background: tab==="users"?gradUser:gradEmp }}>
-                          {u.username[0].toUpperCase()}
-                        </div>
-                        <span style={{ fontWeight:600, color:"var(--text-primary)" }}>{u.username}</span>
-                      </div>
-                    </td>
                     <td style={{ color:"var(--text-muted)", fontSize:"0.85rem" }}>{u.email}</td>
                     <td style={{ color:"var(--text-muted)", fontSize:"0.82rem" }}>
                       {new Date(u.createdAt).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"})}
